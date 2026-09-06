@@ -6,6 +6,7 @@ import com.kholodilin.outbox.events.EventEnvelope;
 import com.kholodilin.outbox.logging.StructuredLogContext;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.sql.init.dependency.DependsOnDatabaseInitialization;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +16,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 @Slf4j
 @Service
 @RequiredArgsConstructor
+@DependsOnDatabaseInitialization
 public class NotificationTransactionService {
 
     private static final String OPERATION = "NOTIFY_ORDER_CREATED";
